@@ -181,32 +181,28 @@
   </div>
 </template>
 <script>
-var fireballSize = 100;
+var fireballSize = 22;
 // Объявите переменную getFireballSpeed, которая будет управлять скоростью фаербола в зависимости от направления ветра в игре. Значением этой переменной должна быть функция c одним параметром — left (направление полёта фаербола), если параметр left — true, то фаербол летит по ветру и функция возвращает скорость равную 5, иначе он летит против ветра со скоростью 2.
-var getFireballSpeed;
-function getFireballDirection(left) {
-  var getFireballDirection;
-  if (left) {
-    getFireballDirection = left;
-    getFireballSpeed = 5;
-  } else {
-    getFireballDirection = right;
-    getFireballSpeed = 2;
-  }
+// значением getFireballSpeed должна быть функция, функции getFireballDirection быть не должно. Подсказка - тело функции getFireballSpeed состоит из одной строчки
+var getFireballSpeed = function (left) {
+  return left ? 5 : 2;
 };
+
 var wizardSpeed = 3;
-var wizardWidth = 30;
+var wizardWidth = 70;
 // Задайте переменной getWizardHeight функцию, которая возвращает пропорциональную высоту мага, то есть высота мага — это пропорция 1.337 * ширина мага.
-var getWizardHeight = function (wizardWidth) {
+// getWizardHeight не должна принимать аргумент, в теле она обращается к глобальной переменной wizardWidth
+var getWizardHeight = function () {
   return 1.337 * wizardWidth;
 };
 // Определите функцию getWizardX c одним параметром — width. Игра будет вызывать вашу функцию и передавать в неё этот параметр (который обозначает ширину игровой области). Результат, возвращаемый вашей функцией, игра будет использовать, чтобы задать положение мага по горизонтали. Напишите функцию так, чтобы центр фигурки мага находился посередине игрового поля.
+// функция getWizardX должна учитывать ширину мага
 function getWizardX(width) {
-  return width / 2;
+  return (width - wizardWidth) / 2;
 };
 // Определите функцию getWizardY c одним параметром — height. Игра будет вызывать вашу функцию и передавать в неё этот параметр (который обозначает высоту игровой области). Результат, возвращаемый вашей функцией, игра будет использовать, чтобы задать положение мага по вертикали. Напишите функцию так, чтобы маг появлялся на высоте две трети игрового поля от земли.
 function getWizardY(height) {
-  return (1 /3) * height;
+  return height / 3;
 };
 </script>
 
