@@ -180,6 +180,7 @@
     <p class="setup-similar-label">Петр Петров</p>
   </div>
 </template>
+<canvas id="canvas"></canvas>
 <script>
 var fireballSize = 22;
 // Объявите переменную getFireballSpeed, которая будет управлять скоростью фаербола в зависимости от направления ветра в игре. Значением этой переменной должна быть функция c одним параметром — left (направление полёта фаербола), если параметр left — true, то фаербол летит по ветру и функция возвращает скорость равную 5, иначе он летит против ветра со скоростью 2.
@@ -205,7 +206,7 @@ function getWizardY(height) {
   return height / 3;
 };
 </script>
-
+<script src="js/stat.js"></script>
 <script src="js/game.js"></script>
 
 </body>
